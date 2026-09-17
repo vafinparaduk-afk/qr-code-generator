@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Кібербезпека та захист персональних даних</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef3f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: linear-gradient(135deg, #172554, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header .icon {
+            font-size: 55px;
+        }
+
+        header h1 {
+            margin: 15px 0 10px;
+            font-size: 38px;
+        }
+
+        header p {
+            font-size: 19px;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #1d4ed8;
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        ul {
+            font-size: 17px;
+            line-height: 1.9;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 7px;
+        }
+
+        .warning {
+            background: #fff7ed;
+            border-left: 6px solid #f97316;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .danger {
+            background: #fef2f2;
+            border-left: 6px solid #ef4444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .safe {
+            background: #f0fdf4;
+            border-left: 6px solid #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #f8fafc;
+            padding: 22px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card .emoji {
+            font-size: 38px;
+        }
+
+        .card h3 {
+            color: #1e40af;
+        }
+
+        .password {
+            background: #eff6ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="icon">🔐</div>
+
+    <h1>Кібербезпека та захист персональних даних</h1>
+
+    <p>
+        Основні правила безпечної роботи в інтернеті
+        та захисту особистої інформації
+    </p>
+</header>
+
+<main>
+
+    <section>
+        <h2>🛡️ Що таке кібербезпека?</h2>
+
+        <p>
+            Кібербезпека — це сукупність правил і заходів, які допомагають
+            захищати комп'ютери, смартфони, акаунти та інформацію
+            від несанкціонованого доступу, шахрайства та інших кіберзагроз.
+        </p>
+
+        <p>
+            Дотримання простих правил безпеки допомагає зменшити ризик
+            втрати даних або доступу до особистих облікових записів.
+        </p>
+    </section>
+
+    <section>
+        <h2>👤 Що таке персональні дані?</h2>
+
+        <p>
+            Персональні дані — це інформація, за якою можна прямо або
+            опосередковано визначити конкретну людину.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="emoji">👨‍💼</div>
+                <h3>Особисті дані</h3>
+                <p>Ім'я, прізвище, дата народження.</p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">📱</div>
+                <h3>Контакти</h3>
+                <p>Номер телефону та електронна пошта.</p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">📍</div>
+                <h3>Інформація про місце</h3>
+                <p>Адреса проживання або інші дані про місцезнаходження.</p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🔑</div>
+                <h3>Дані акаунтів</h3>
+                <p>Логіни, паролі та коди доступу.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2>🔑 Правила створення надійного пароля</h2>
+
+        <div class="safe">
+            <ul>
+                <li>Використовуйте довгі та унікальні паролі.</li>
+                <li>Не використовуйте один пароль для всіх сайтів.</li>
+                <li>Не використовуйте очевидні дані: ім'я, дату народження тощо.</li>
+                <li>За можливості використовуйте менеджер паролів.</li>
+                <li>Увімкніть двофакторну автентифікацію (2FA).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>📧 Як захиститися від фішингу?</h2>
+
+        <p>
+            Фішинг — це спроба обманом змусити людину надати конфіденційну
+            інформацію або перейти на небезпечний сайт.
+        </p>
+
+        <div class="warning">
+            <strong>⚠️ Звертайте увагу:</strong>
+
+            <ul>
+                <li>Не відкривайте підозрілі посилання.</li>
+                <li>Перевіряйте адресу сайту перед введенням пароля.</li>
+                <li>Не повідомляйте коди підтвердження стороннім людям.</li>
+                <li>Обережно ставтеся до повідомлень із вимогою терміново виконати дію.</li>
+                <li>Не завантажуйте невідомі файли з підозрілих листів.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>📱 Безпека смартфона та комп'ютера</h2>
+
+        <ul>
+            <li>Регулярно оновлюйте операційну систему та програми.</li>
+            <li>Використовуйте блокування екрана.</li>
+            <li>Встановлюйте програми лише з надійних джерел.</li>
+            <li>Не залишайте пристрій без нагляду у громадських місцях.</li>
+            <li>Регулярно створюйте резервні копії важливих файлів.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🚫 Чого не можна робити?</h2>
+
+        <div class="danger">
+            <ul>
+                <li>Передавати пароль іншим людям.</li>
+                <li>Повідомляти комусь коди з SMS або застосунків-автентифікаторів.</li>
+                <li>Публікувати зайву особисту інформацію у відкритому доступі.</li>
+                <li>Вводити свої дані на підозрілих сайтах.</li>
+                <li>Використовувати невідомі USB-накопичувачі.</li>
+                <li>Ігнорувати попередження системи безпеки.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>✅ Золоте правило кібербезпеки</h2>
+
+        <div class="safe">
+            <p>
+                <strong>
+                    Перед тим як натиснути на посилання, відкрити файл
+                    або повідомити особисті дані — зупиніться та перевірте,
+                    кому ви їх передаєте.
+                </strong>
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>📌 Висновок</h2>
+
+        <p>
+            Кібербезпека починається з відповідальної поведінки самого користувача.
+            Надійні паролі, двофакторна автентифікація, оновлення програм,
+            обережність із посиланнями та захист персональних даних
+            допомагають безпечніше користуватися цифровими технологіями.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>🔐 Практична робота — «Цифровий помічник оператора з обробки інформації»</p>
+    <p>Тема: Правила кібербезпеки та захист персональних даних</p>
+</footer>
+
+</body>
+</html>

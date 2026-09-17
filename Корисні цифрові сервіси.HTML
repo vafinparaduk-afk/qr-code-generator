@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Корисні цифрові сервіси</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef3f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: linear-gradient(135deg, #065f46, #10b981);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header .icon {
+            font-size: 55px;
+        }
+
+        header h1 {
+            margin: 15px 0 10px;
+            font-size: 38px;
+        }
+
+        header p {
+            font-size: 19px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #047857;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #065f46;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        ul {
+            font-size: 17px;
+            line-height: 1.9;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 7px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: #f0fdf4;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #a7f3d0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 45px;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            text-align: center;
+            color: #047857;
+        }
+
+        .service-card p {
+            text-align: center;
+        }
+
+        .category {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .good {
+            background: #f0fdf4;
+            border-left: 6px solid #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .warning {
+            background: #fff7ed;
+            border-left: 6px solid #f97316;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .info {
+            background: #eff6ff;
+            border-left: 6px solid #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .service-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .service-table th {
+            background: #047857;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        .service-table td {
+            padding: 14px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .service-table tr:nth-child(even) {
+            background: #f0fdf4;
+        }
+
+        .steps {
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            padding: 20px 20px 20px 65px;
+            margin-bottom: 15px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 20px;
+            top: 18px;
+            width: 32px;
+            height: 32px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+        }
+
+        .link-box {
+            background: #ecfdf5;
+            border: 1px solid #6ee7b7;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .link-box a {
+            color: #047857;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .link-box a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 650px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .service-table {
+                font-size: 14px;
+            }
+
+            .service-table th,
+            .service-table td {
+                padding: 9px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="icon">🌐</div>
+
+    <h1>Корисні цифрові сервіси</h1>
+
+    <p>
+        Онлайн-інструменти, які допомагають навчатися,
+        працювати з інформацією та виконувати повсякденні завдання
+    </p>
+
+</header>
+
+<main>
+
+    <section>
+
+        <h2>🌐 Що таке цифрові сервіси?</h2>
+
+        <p>
+            Цифрові сервіси — це вебсайти та програми, які дозволяють
+            виконувати різні завдання за допомогою комп'ютера,
+            смартфона або іншого цифрового пристрою.
+        </p>
+
+        <p>
+            Вони допомагають працювати з документами, спілкуватися,
+            навчатися, зберігати інформацію, створювати презентації
+            та організовувати робочий процес.
+        </p>
+
+        <div class="good">
+
+            <strong>💡 Перевага цифрових сервісів:</strong>
+
+            <p>
+                Багато завдань можна виконувати швидко та дистанційно,
+                використовуючи лише пристрій і доступ до інтернету.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>💻 Сервіси для роботи та навчання</h2>
+
+        <div class="services">
+
+            <div class="service-card">
+
+                <div class="service-icon">📄</div>
+
+                <span class="category">Документи</span>
+
+                <h3>Google Docs</h3>
+
+                <p>
+                    Онлайн-редактор текстових документів.
+                    Дозволяє створювати, редагувати та спільно
+                    працювати над документами.
+                </p>
+
+                <div class="link-box">
+                    <a href="https://docs.google.com/" target="_blank">
+                        Відкрити сервіс →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">📊</div>
+
+                <span class="category">Таблиці</span>
+
+                <h3>Google Sheets</h3>
+
+                <p>
+                    Онлайн-сервіс для створення електронних таблиць,
+                    розрахунків та роботи з даними.
+                </p>
+
+                <div class="link-box">
+                    <a href="https://sheets.google.com/" target="_blank">
+                        Відкрити сервіс →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">🎨</div>
+
+                <span class="category">Дизайн</span>
+
+                <h3>Canva</h3>
+
+                <p>
+                    Онлайн-інструмент для створення презентацій,
+                    плакатів, інфографіки та інших матеріалів.
+                </p>
+
+                <div class="link-box">
+                    <a href="https://www.canva.com/" target="_blank">
+                        Відкрити сервіс →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">🤖</div>
+
+                <span class="category">Штучний інтелект</span>
+
+                <h3>ChatGPT</h3>
+
+                <p>
+                    Цифровий помічник для роботи з текстом,
+                    пошуку ідей, навчання та аналізу інформації.
+                </p>
+
+                <div class="link-box">
+                    <a href="https://chatgpt.com/" target="_blank">
+                        Відкрити сервіс →
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>☁️ Сервіси для зберігання файлів</h2>
+
+        <div class="services">
+
+            <div class="service-card">
+
+                <div class="service-icon">☁️</div>
+
+                <span class="category">Хмарне сховище</span>
+
+                <h3>Google Drive</h3>
+
+                <p>
+                    Дозволяє зберігати документи, фотографії та інші
+                    файли в хмарі й отримувати до них доступ
+                    з різних пристроїв.
+                </p>
+
+                <div class="link-box">
+                    <a href="https://drive.google.com/" target="_blank">
+                        Відкрити сервіс →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">🔷</div>
+
+                <span class="category">Хмарне сховище</span>
+
+                <h3>OneDrive</h3>
+
+                <p>
+                    Сервіс для зберігання та синхронізації файлів
+                    між різними пристроями.
+                </p>
+
+                <div class="link-box">
+                    <a href="https://onedrive.live.com/" target="_blank">
+                        Відкрити сервіс →
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>🎥 Сервіси для спілкування та онлайн-зустрічей</h2>
+
+        <div class="services">
+
+            <div class="service-card">
+
+                <div class="service-icon">📹</div>
+
+                <span class="category">Відеозв'язок</span>
+
+                <h3>Zoom</h3>
+
+                <p>
+                    Сервіс для відеоконференцій, онлайн-зустрічей
+                    та дистанційного навчання.
+                </p>
+
+                <div class="link-box">
+                    <a href="https://zoom.us/" target="_blank">
+                        Відкрити сервіс →
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">💬</div>
+
+                <span class="category">Спілкування</span>
+
+                <h3>Microsoft Teams</h3>
+
+                <p>
+                    Платформа для командної роботи,
+                    спілкування та онлайн-зустрічей.
+                </p>
+
+                <div class="link-box">
+                    <a href="https://www.microsoft.com/microsoft-teams/" target="_blank">
+                        Відкрити сервіс →
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>📚 Сервіси для навчання</h2>
+
+        <table class="service-table">
+
+            <tr>
+                <th>Сервіс</th>
+                <th>Для чого використовується?</th>
+            </tr>
+
+            <tr>
+                <td>📄 Google Docs</td>
+                <td>Створення та редагування текстових документів.</td>
+            </tr>
+
+            <tr>
+                <td>📊 Google Sheets</td>
+                <td>Робота з таблицями та даними.</td>
+            </tr>
+
+            <tr>
+                <td>🎨 Canva</td>
+                <td>Створення презентацій, плакатів та дизайнів.</td>
+            </tr>
+
+            <tr>
+                <td>🤖 ChatGPT</td>
+                <td>Пояснення матеріалу, робота з текстом та пошук ідей.</td>
+            </tr>
+
+            <tr>
+                <td>☁️ Google Drive</td>
+                <td>Зберігання та обмін файлами.</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <section>
+
+        <h2>🧑‍💼 Як цифрові сервіси допомагають оператору?</h2>
+
+        <ul>
+
+            <li>
+                Створювати та редагувати документи.
+            </li>
+
+            <li>
+                Працювати з електронними таблицями.
+            </li>
+
+            <li>
+                Створювати презентації та інформаційні матеріали.
+            </li>
+
+            <li>
+                Зберігати файли в хмарних сховищах.
+            </li>
+
+            <li>
+                Спілкуватися з колегами та клієнтами.
+            </li>
+
+            <li>
+                Проводити онлайн-зустрічі.
+            </li>
+
+            <li>
+                Використовувати штучний інтелект для виконання
+                інформаційних завдань.
+            </li>
+
+        </ul>
+
+    </section>
+
+
+    <section>
+
+        <h2>🚀 Як правильно використовувати цифрові сервіси?</h2>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <h3>Визначте завдання</h3>
+
+                <p>
+                    Спочатку визначте, що саме потрібно зробити.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Оберіть відповідний сервіс</h3>
+
+                <p>
+                    Для документа використовуйте текстовий редактор,
+                    для таблиць — табличний процесор тощо.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Перевірте інформацію</h3>
+
+                <p>
+                    Переконайтеся, що отримані дані правильні
+                    та відповідають вашому завданню.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Збережіть результат</h3>
+
+                <p>
+                    Зберігайте важливі файли та створюйте резервні копії.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>🔐 Безпека під час використання сервісів</h2>
+
+        <div class="warning">
+
+            <ul>
+
+                <li>
+                    Використовуйте надійні та унікальні паролі.
+                </li>
+
+                <li>
+                    Увімкніть двофакторну автентифікацію,
+                    якщо сервіс її підтримує.
+                </li>
+
+                <li>
+                    Не повідомляйте іншим людям свої паролі та коди доступу.
+                </li>
+
+                <li>
+                    Перевіряйте посилання перед переходом на сайт.
+                </li>
+
+                <li>
+                    Не завантажуйте важливі документи
+                    у ненадійні або невідомі сервіси.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>⭐ Переваги цифрових сервісів</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>⏱️ Економія часу</h3>
+                <p>
+                    Допомагають швидше виконувати повсякденні завдання.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🌍 Доступність</h3>
+                <p>
+                    Багато сервісів доступні з будь-якого місця
+                    через інтернет.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🤝 Спільна робота</h3>
+                <p>
+                    Кілька людей можуть працювати над одним документом.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📈 Продуктивність</h3>
+                <p>
+                    Допомагають організувати роботу
+                    та підвищити її ефективність.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>📌 Висновок</h2>
+
+        <p>
+            Цифрові сервіси є важливою частиною сучасного навчання
+            та професійної діяльності. Вони допомагають працювати
+            з документами, таблицями, презентаціями, файлами
+            та спілкуватися з іншими людьми.
+        </p>
+
+        <p>
+            Оператор з обробки інформації повинен уміти правильно
+            обирати цифрові інструменти відповідно до поставленого
+            завдання та дотримуватися правил цифрової безпеки.
+        </p>
+
+        <div class="good">
+
+            <p>
+                <strong>
+                    🌐 Використовуй цифрові технології розумно,
+                    безпечно та ефективно!
+                </strong>
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>
+        🌐 Практична робота — «Цифровий помічник оператора з обробки інформації»
+    </p>
+
+    <p>
+        Тема: Корисні цифрові сервіси
+    </p>
+
+</footer>
+
+</body>
+</html>

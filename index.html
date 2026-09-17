@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цифровий помічник</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef2ff,#f8fafc);color:#1f2937}
+header{padding:65px 20px;text-align:center;color:white;background:linear-gradient(135deg,#312e81,#7c3aed,#2563eb)}
+header .big{font-size:58px}
+h1{font-size:42px;margin:12px 0 10px}
+header p{max-width:760px;margin:auto;font-size:18px;line-height:1.6}
+main{max-width:1150px;margin:auto;padding:38px 20px 55px}
+.intro{text-align:center;margin-bottom:28px}
+.intro h2{color:#4c1d95;font-size:28px}
+.intro p{font-size:17px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;color:inherit;background:white;border-radius:20px;padding:25px 20px;box-shadow:0 8px 25px rgba(0,0,0,.09);border:1px solid #e5e7eb;transition:.2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.14);border-color:#a78bfa}
+.icon{font-size:45px}
+.num{margin-top:8px;font-size:12px;font-weight:bold;color:#7c3aed;letter-spacing:1px}
+.card h2{font-size:19px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.card img{width:155px;height:155px;margin:8px 0 15px}
+.open{background:#6d28d9;color:white;padding:11px 18px;border-radius:10px;font-weight:bold}
+.note{margin-top:30px;background:#fff7ed;border-left:6px solid #f59e0b;padding:18px;border-radius:10px;line-height:1.55}
+footer{text-align:center;background:#111827;color:white;padding:24px 15px}
+footer p{margin:5px;font-size:14px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}h1{font-size:30px}header{padding:45px 15px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="big">💻</div>
+  <h1>Цифровий помічник</h1>
+  <p>Навчальні матеріали для оператора з обробки інформації</p>
+</header>
+<main>
+  <div class="intro">
+    <h2>📚 Навчальні матеріали</h2>
+    <p>Оберіть потрібну тему. Натисніть на картку, щоб відкрити відповідний HTML-документ, або скористайтеся QR-кодом.</p>
+  </div>
+  <div class="grid">
+
+      <a class="card" href="Корисні клавіатурні скорочення.HTML">
+        <div class="icon">⌨️</div>
+        <div class="num">ТЕМА 1</div>
+        <h2>Корисні клавіатурні скорочення</h2>
+        <img src="qr/qr1.png" alt="QR-код: Корисні клавіатурні скорочення">
+        <span class="open">Відкрити матеріал →</span>
+      </a>
+    
+      <a class="card" href="Корисні цифрові сервіси.HTML">
+        <div class="icon">🌐</div>
+        <div class="num">ТЕМА 2</div>
+        <h2>Корисні цифрові сервіси</h2>
+        <img src="qr/qr2.png" alt="QR-код: Корисні цифрові сервіси">
+        <span class="open">Відкрити матеріал →</span>
+      </a>
+    
+      <a class="card" href="Організація та зберігання файлів.HTML">
+        <div class="icon">📁</div>
+        <div class="num">ТЕМА 3</div>
+        <h2>Організація та зберігання файлів</h2>
+        <img src="qr/qr3.png" alt="QR-код: Організація та зберігання файлів">
+        <span class="open">Відкрити матеріал →</span>
+      </a>
+    
+      <a class="card" href="Правила Електронного ділового листування.HTML">
+        <div class="icon">✉️</div>
+        <div class="num">ТЕМА 4</div>
+        <h2>Правила електронного ділового листування</h2>
+        <img src="qr/qr4.png" alt="QR-код: Правила електронного ділового листування">
+        <span class="open">Відкрити матеріал →</span>
+      </a>
+    
+      <a class="card" href="Правила кібербезпеки та захист персональних даних.HTML">
+        <div class="icon">🛡️</div>
+        <div class="num">ТЕМА 5</div>
+        <h2>Правила кібербезпеки та захист персональних даних</h2>
+        <img src="qr/qr5.png" alt="QR-код: Правила кібербезпеки та захист персональних даних">
+        <span class="open">Відкрити матеріал →</span>
+      </a>
+    
+      <a class="card" href="Форматування текстових документів.HTML">
+        <div class="icon">📝</div>
+        <div class="num">ТЕМА 6</div>
+        <h2>Форматування текстових документів</h2>
+        <img src="qr/qr6.png" alt="QR-код: Форматування текстових документів">
+        <span class="open">Відкрити матеріал →</span>
+      </a>
+    
+  </div>
+  <div class="note">
+    <strong>ℹ️ Важливо:</strong> у цій локальній версії QR-коди містять назви відповідних HTML-файлів.
+    Картки та кнопки відкривають матеріали безпосередньо з цієї папки. Для відкриття QR-кодів зі смартфона
+    потрібне розміщення сайту на веб-сервері або локальному сервері в мережі.
+  </div>
+</main>
+<footer>
+  <p>💻 Практична робота — «Цифровий помічник оператора з обробки інформації»</p>
+  <p>HTML • CSS • QR-коди</p>
+</footer>
+</body>
+</html>

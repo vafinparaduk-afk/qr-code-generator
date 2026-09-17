@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Організація та зберігання файлів</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef3f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: linear-gradient(135deg, #92400e, #f59e0b);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header .icon {
+            font-size: 55px;
+        }
+
+        header h1 {
+            margin: 15px 0 10px;
+            font-size: 38px;
+        }
+
+        header p {
+            font-size: 19px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 1050px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #b45309;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #92400e;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        ul,
+        ol {
+            font-size: 17px;
+            line-height: 1.9;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 7px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #fffbeb;
+            padding: 22px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid #fde68a;
+        }
+
+        .card .emoji {
+            font-size: 40px;
+        }
+
+        .card h3 {
+            color: #b45309;
+        }
+
+        .good {
+            background: #f0fdf4;
+            border-left: 6px solid #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .warning {
+            background: #fff7ed;
+            border-left: 6px solid #f97316;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .danger {
+            background: #fef2f2;
+            border-left: 6px solid #ef4444;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .tip {
+            background: #eff6ff;
+            border-left: 6px solid #3b82f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .folder-tree {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 25px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.8;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .file-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .file-table th {
+            background: #b45309;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        .file-table td {
+            padding: 13px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .file-table tr:nth-child(even) {
+            background: #fffbeb;
+        }
+
+        .steps {
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            padding: 20px 20px 20px 65px;
+            margin-bottom: 15px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 20px;
+            top: 18px;
+            width: 32px;
+            height: 32px;
+            background: #f59e0b;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 650px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .folder-tree {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="icon">📁</div>
+
+    <h1>Організація та зберігання файлів</h1>
+
+    <p>
+        Як правильно зберігати, називати та організовувати
+        файли для швидкої та зручної роботи
+    </p>
+
+</header>
+
+<main>
+
+    <section>
+
+        <h2>📁 Чому важливо правильно організовувати файли?</h2>
+
+        <p>
+            Під час роботи з комп'ютером оператор може створювати
+            велику кількість документів, таблиць, зображень та інших файлів.
+        </p>
+
+        <p>
+            Правильна організація файлів допомагає швидко знаходити
+            потрібну інформацію, уникати плутанини та зменшувати
+            ризик втрати важливих даних.
+        </p>
+
+        <div class="good">
+
+            <strong>💡 Головний принцип:</strong>
+
+            <p>
+                Кожен файл повинен мати зрозуміле місце зберігання
+                та логічну назву.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>🗂️ Основні елементи організації інформації</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="emoji">📂</div>
+
+                <h3>Папки</h3>
+
+                <p>
+                    Використовуються для групування файлів
+                    за темою або призначенням.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">📄</div>
+
+                <h3>Файли</h3>
+
+                <p>
+                    Містять документи, таблиці, зображення
+                    та іншу інформацію.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">🏷️</div>
+
+                <h3>Назви</h3>
+
+                <p>
+                    Допомагають зрозуміти вміст файлу
+                    без його відкриття.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">☁️</div>
+
+                <h3>Хмарне сховище</h3>
+
+                <p>
+                    Дозволяє зберігати та синхронізувати
+                    файли через інтернет.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>📂 Приклад правильної структури папок</h2>
+
+        <p>
+            Наприклад, для навчальної або робочої діяльності
+            можна створити таку структуру:
+        </p>
+
+        <div class="folder-tree">
+📁 Навчання
+<br>
+├── 📁 Документи
+<br>
+│   ├── 📄 Звіт.docx
+<br>
+│   ├── 📄 Реферат.docx
+<br>
+│   └── 📄 Практична_робота.docx
+<br>
+│
+<br>
+├── 📁 Таблиці
+<br>
+│   ├── 📊 Результати.xlsx
+<br>
+│   └── 📊 Облік.xlsx
+<br>
+│
+<br>
+├── 📁 Презентації
+<br>
+│   └── 📊 Захист_роботи.pptx
+<br>
+│
+<br>
+└── 📁 Зображення
+<br>
+    ├── 🖼️ Фото1.jpg
+<br>
+    └── 🖼️ Фото2.png
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>🏷️ Як правильно називати файли?</h2>
+
+        <p>
+            Назва файлу повинна бути короткою, зрозумілою
+            та описувати його вміст.
+        </p>
+
+        <table class="file-table">
+
+            <tr>
+                <th>❌ Погана назва</th>
+                <th>✅ Хороша назва</th>
+            </tr>
+
+            <tr>
+                <td>Документ1.docx</td>
+                <td>Звіт_вересень_2026.docx</td>
+            </tr>
+
+            <tr>
+                <td>Новий документ.docx</td>
+                <td>Практична_робота_5.docx</td>
+            </tr>
+
+            <tr>
+                <td>табл.xlsx</td>
+                <td>Облік_товарів.xlsx</td>
+            </tr>
+
+            <tr>
+                <td>фото123.jpg</td>
+                <td>Фото_презентації.jpg</td>
+            </tr>
+
+        </table>
+
+        <div class="tip">
+
+            <strong>💡 Порада:</strong>
+
+            <p>
+                Для розділення слів у назвах файлів можна використовувати
+                нижнє підкреслення: <strong>Звіт_за_вересень.docx</strong>.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>📅 Сортування файлів</h2>
+
+        <p>
+            Якщо файлів багато, їх можна організувати за різними ознаками:
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="emoji">📅</div>
+
+                <h3>За датою</h3>
+
+                <p>
+                    Наприклад: 2026_09_Звіт.docx
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">📌</div>
+
+                <h3>За типом</h3>
+
+                <p>
+                    Документи, таблиці, фото, презентації.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">📚</div>
+
+                <h3>За предметом</h3>
+
+                <p>
+                    Інформатика, математика, історія тощо.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">💼</div>
+
+                <h3>За проєктом</h3>
+
+                <p>
+                    Окрема папка для кожного проєкту.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>💾 Основні способи зберігання файлів</h2>
+
+        <table class="file-table">
+
+            <tr>
+                <th>Спосіб</th>
+                <th>Перевага</th>
+            </tr>
+
+            <tr>
+                <td>💻 Комп'ютер</td>
+                <td>Швидкий доступ до файлів.</td>
+            </tr>
+
+            <tr>
+                <td>💾 USB-накопичувач</td>
+                <td>Зручно переносити інформацію.</td>
+            </tr>
+
+            <tr>
+                <td>☁️ Хмарне сховище</td>
+                <td>Доступ до файлів із різних пристроїв.</td>
+            </tr>
+
+            <tr>
+                <td>🗄️ Зовнішній диск</td>
+                <td>Зручний для резервного копіювання.</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <section>
+
+        <h2>🔄 Резервне копіювання</h2>
+
+        <p>
+            Резервна копія — це додаткова копія важливих файлів,
+            яка допомагає відновити інформацію у випадку її втрати.
+        </p>
+
+        <div class="good">
+
+            <h3>Рекомендується:</h3>
+
+            <ul>
+
+                <li>
+                    Створювати резервні копії важливих документів.
+                </li>
+
+                <li>
+                    Зберігати копії на іншому носії або в надійному
+                    хмарному сховищі.
+                </li>
+
+                <li>
+                    Перевіряти, чи резервні копії дійсно доступні.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>🔐 Безпека файлів</h2>
+
+        <div class="warning">
+
+            <ul>
+
+                <li>
+                    Не відкривайте підозрілі файли від невідомих відправників.
+                </li>
+
+                <li>
+                    Не зберігайте паролі у звичайних текстових файлах.
+                </li>
+
+                <li>
+                    Захищайте важливі документи від несанкціонованого доступу.
+                </li>
+
+                <li>
+                    Регулярно оновлюйте операційну систему та програми.
+                </li>
+
+                <li>
+                    Використовуйте резервне копіювання.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>🚫 Чого не варто робити?</h2>
+
+        <div class="danger">
+
+            <ul>
+
+                <li>
+                    Не зберігайте всі файли на робочому столі.
+                </li>
+
+                <li>
+                    Не використовуйте однакові назви для різних документів.
+                </li>
+
+                <li>
+                    Не видаляйте важливі файли без перевірки.
+                </li>
+
+                <li>
+                    Не зберігайте єдину копію важливого документа.
+                </li>
+
+                <li>
+                    Не використовуйте незрозумілі назви на кшталт
+                    «Новий документ 7.docx».
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>🚀 Як правильно організувати файли?</h2>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <h3>Створіть основну папку</h3>
+
+                <p>
+                    Наприклад: «Навчання» або «Робота».
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Створіть підпапки</h3>
+
+                <p>
+                    Розділіть файли за темами, проєктами або типами.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Давайте зрозумілі назви</h3>
+
+                <p>
+                    Назва повинна показувати, що знаходиться всередині.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Видаляйте непотрібне</h3>
+
+                <p>
+                    Регулярно переглядайте папки та видаляйте зайві файли.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>Створюйте резервні копії</h3>
+
+                <p>
+                    Важливі документи повинні мати додаткову копію.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>⌨️ Корисні клавіатурні скорочення</h2>
+
+        <table class="file-table">
+
+            <tr>
+                <th>Комбінація</th>
+                <th>Дія</th>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + C</strong></td>
+                <td>Копіювати файл</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + V</strong></td>
+                <td>Вставити файл</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + X</strong></td>
+                <td>Вирізати файл</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + Z</strong></td>
+                <td>Скасувати останню дію</td>
+            </tr>
+
+            <tr>
+                <td><strong>F2</strong></td>
+                <td>Перейменувати вибраний файл</td>
+            </tr>
+
+            <tr>
+                <td><strong>Delete</strong></td>
+                <td>Видалити вибраний файл</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + A</strong></td>
+                <td>Вибрати всі файли</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <section>
+
+        <h2>📌 Висновок</h2>
+
+        <p>
+            Правильна організація та зберігання файлів є важливою
+            навичкою оператора з обробки інформації.
+        </p>
+
+        <p>
+            Логічна структура папок, зрозумілі назви файлів,
+            резервне копіювання та дотримання правил безпеки
+            допомагають швидко знаходити потрібну інформацію
+            та захищати її від втрати.
+        </p>
+
+        <div class="good">
+
+            <p>
+                <strong>
+                    📁 Організовані файли — це порядок, швидкість
+                    та безпека роботи!
+                </strong>
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p>
+        📁 Практична робота — «Цифровий помічник оператора з обробки інформації»
+    </p>
+
+    <p>
+        Тема: Організація та зберігання файлів
+    </p>
+
+</footer>
+
+</body>
+</html>

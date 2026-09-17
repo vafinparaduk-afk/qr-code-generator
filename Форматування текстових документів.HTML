@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Форматування текстових документів</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef3f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header .icon {
+            font-size: 55px;
+        }
+
+        header h1 {
+            margin: 15px 0 10px;
+            font-size: 38px;
+        }
+
+        header p {
+            font-size: 19px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 1050px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #1d4ed8;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #1e40af;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        ul {
+            font-size: 17px;
+            line-height: 1.9;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 7px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #eff6ff;
+            padding: 22px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid #bfdbfe;
+        }
+
+        .card .emoji {
+            font-size: 40px;
+        }
+
+        .card h3 {
+            color: #1d4ed8;
+        }
+
+        .good {
+            background: #f0fdf4;
+            border-left: 6px solid #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .warning {
+            background: #fff7ed;
+            border-left: 6px solid #f97316;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .example {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .document {
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 35px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .document-title {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .justify {
+            text-align: justify;
+        }
+
+        .format-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .format-table th {
+            background: #1d4ed8;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        .format-table td {
+            padding: 13px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .format-table tr:nth-child(even) {
+            background: #eff6ff;
+        }
+
+        .tip {
+            background: #f5f3ff;
+            border-left: 6px solid #7c3aed;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 650px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .document {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="icon">📄</div>
+
+    <h1>Форматування текстових документів</h1>
+
+    <p>
+        Основні правила створення, оформлення та редагування
+        професійних текстових документів
+    </p>
+
+</header>
+
+<main>
+
+    <section>
+
+        <h2>📄 Що таке форматування?</h2>
+
+        <p>
+            Форматування текстового документа — це зміна його зовнішнього
+            вигляду та структури для того, щоб інформація була зрозумілою,
+            зручною для читання та професійно оформленою.
+        </p>
+
+        <p>
+            Форматування можна виконувати у текстових редакторах,
+            наприклад Microsoft Word, Google Docs та інших програмах.
+        </p>
+
+    </section>
+
+
+    <section>
+
+        <h2>📝 Основні елементи форматування</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="emoji">🔤</div>
+
+                <h3>Шрифт</h3>
+
+                <p>
+                    Вибір типу, розміру та стилю шрифту.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">📏</div>
+
+                <h3>Абзац</h3>
+
+                <p>
+                    Відступи, інтервали та вирівнювання тексту.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">🎨</div>
+
+                <h3>Колір</h3>
+
+                <p>
+                    Колір тексту та виділення важливої інформації.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="emoji">📑</div>
+
+                <h3>Структура</h3>
+
+                <p>
+                    Заголовки, списки, таблиці та розділи.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>🔤 Робота зі шрифтом</h2>
+
+        <p>
+            Для основного тексту документа бажано використовувати
+            простий і добре читабельний шрифт.
+        </p>
+
+        <table class="format-table">
+
+            <tr>
+                <th>Параметр</th>
+                <th>Рекомендація</th>
+            </tr>
+
+            <tr>
+                <td>Тип шрифту</td>
+                <td>Arial, Calibri, Times New Roman та інші читабельні шрифти</td>
+            </tr>
+
+            <tr>
+                <td>Розмір основного тексту</td>
+                <td>Зазвичай 12–14 pt</td>
+            </tr>
+
+            <tr>
+                <td>Заголовок</td>
+                <td>Більший розмір та напівжирне накреслення</td>
+            </tr>
+
+            <tr>
+                <td>Виділення</td>
+                <td>Жирний, курсив або підкреслення — за потреби</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <section>
+
+        <h2>📐 Вирівнювання тексту</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>По лівому краю</h3>
+
+                <p style="text-align: left;">
+                    Використовується для більшості звичайних текстів.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>По центру</h3>
+
+                <p class="center">
+                    Часто використовується для заголовків.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>По правому краю</h3>
+
+                <p class="right">
+                    Може використовуватися для окремих елементів документа.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>По ширині</h3>
+
+                <p class="justify">
+                    Текст рівномірно розподіляється між лівим і правим краями.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>📑 Заголовки та структура документа</h2>
+
+        <p>
+            Правильна структура допомагає читачеві швидко знайти
+            потрібну інформацію.
+        </p>
+
+        <div class="good">
+
+            <ul>
+
+                <li>Використовуйте заголовок документа.</li>
+
+                <li>Поділяйте інформацію на логічні розділи.</li>
+
+                <li>Використовуйте підзаголовки.</li>
+
+                <li>Не робіть занадто довгі абзаци.</li>
+
+                <li>Важливі частини можна виділяти жирним шрифтом.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>📋 Марковані та нумеровані списки</h2>
+
+        <p>
+            Списки допомагають компактно та зрозуміло представити
+            декілька пунктів.
+        </p>
+
+        <div class="example">
+
+            <h3>Маркований список:</h3>
+
+            <ul>
+
+                <li>Документи</li>
+                <li>Таблиці</li>
+                <li>Звіти</li>
+                <li>Електронні листи</li>
+
+            </ul>
+
+
+            <h3>Нумерований список:</h3>
+
+            <ol>
+
+                <li>Створити документ.</li>
+                <li>Ввести текст.</li>
+                <li>Відформатувати документ.</li>
+                <li>Перевірити помилки.</li>
+                <li>Зберегти файл.</li>
+
+            </ol>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>📊 Використання таблиць</h2>
+
+        <p>
+            Таблиці використовують для зручного представлення
+            структурованої інформації, наприклад даних, результатів
+            роботи або розкладів.
+        </p>
+
+        <table class="format-table">
+
+            <tr>
+                <th>Назва</th>
+                <th>Кількість</th>
+                <th>Статус</th>
+            </tr>
+
+            <tr>
+                <td>Документи</td>
+                <td>15</td>
+                <td>Готово</td>
+            </tr>
+
+            <tr>
+                <td>Звіти</td>
+                <td>8</td>
+                <td>На перевірці</td>
+            </tr>
+
+            <tr>
+                <td>Таблиці</td>
+                <td>12</td>
+                <td>Готово</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <section>
+
+        <h2>📄 Приклад правильно оформленого документа</h2>
+
+        <div class="document">
+
+            <div class="document-title">
+                ЗВІТ ПРО ВИКОНАНУ РОБОТУ
+            </div>
+
+            <p>
+                <strong>Виконавець:</strong> Ім'я Прізвище
+            </p>
+
+            <p>
+                <strong>Дата:</strong> 14 вересня 2026 року
+            </p>
+
+            <hr>
+
+            <h3>1. Мета роботи</h3>
+
+            <p>
+                Метою роботи є опрацювання інформації та підготовка
+                текстового документа відповідно до встановлених вимог.
+            </p>
+
+            <h3>2. Виконана робота</h3>
+
+            <p>
+                Під час виконання завдання було створено документ,
+                відформатовано текст, додано заголовки та структуровано
+                інформацію.
+            </p>
+
+            <h3>3. Висновок</h3>
+
+            <p>
+                Правильне форматування робить документ зрозумілим,
+                охайним та зручним для читання.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>⚠️ Типові помилки під час форматування</h2>
+
+        <div class="warning">
+
+            <ul>
+
+                <li>
+                    Використання занадто великої кількості різних шрифтів.
+                </li>
+
+                <li>
+                    Надмірне використання кольорів.
+                </li>
+
+                <li>
+                    Відсутність заголовків та структури.
+                </li>
+
+                <li>
+                    Занадто великі або маленькі відступи.
+                </li>
+
+                <li>
+                    Нерівномірне форматування тексту.
+                </li>
+
+                <li>
+                    Надмірне використання жирного та підкресленого тексту.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>💡 Корисні поради</h2>
+
+        <div class="tip">
+
+            <ul>
+
+                <li>
+                    Дотримуйтеся єдиного стилю в усьому документі.
+                </li>
+
+                <li>
+                    Використовуйте зрозумілі заголовки.
+                </li>
+
+                <li>
+                    Залишайте достатньо вільного простору між елементами.
+                </li>
+
+                <li>
+                    Перевіряйте документ перед друком або відправленням.
+                </li>
+
+                <li>
+                    Зберігайте важливі документи у потрібному форматі.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <h2>⌨️ Корисні клавіатурні скорочення</h2>
+
+        <table class="format-table">
+
+            <tr>
+                <th>Комбінація</th>
+                <th>Дія</th>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + B</strong></td>
+                <td>Жирний текст</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + I</strong></td>
+                <td>Курсив</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + U</strong></td>
+                <td>Підкреслений текст</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + A</strong></td>
+                <td>Виділити весь текст</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + S</strong></td>
+                <td>Зберегти документ</td>
+            </tr>
+
+            <tr>
+                <td><strong>Ctrl + P</strong></td>
+                <td>Друк документа</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <section>
+
+        <h2>📌 Висновок</h2>
+
+        <p>
+            Правильне форматування текстових документів допомагає
+            зробити інформацію зрозумілою, структурованою та професійною.
+        </p>
+
+        <p>
+            Оператор з обробки інформації повинен уміти працювати
+            зі шрифтами, абзацами, заголовками, списками, таблицями
+            та іншими елементами оформлення.
+        </p>
+
+        <div class="good">
+
+            <p>
+                <strong>
+                    📄 Якісний документ — це не лише правильний текст,
+                    а й грамотне та охайне оформлення!
+                </strong>
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        📄 Практична робота — «Цифровий помічник оператора з обробки інформації»
+    </p>
+
+    <p>
+        Тема: Форматування текстових документів
+    </p>
+
+</footer>
+
+</body>
+</html>
+ 
